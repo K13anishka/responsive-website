@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>India: Country Profile</title>
+    <!-- Compiled CSS from Sass (styles.css) -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS (optional, if you want to keep bootstrap styles) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">India Profile</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#info">Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#dynamic">Dynamic Data</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main container -->
+    <div class="container">
+        <!-- Flag and title -->
+        <div class="text-center mb-2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg"
+                 alt="Flag of India"
+                 class="flag-img">
+        </div>
+        <h1 class="section-title mb-4">India</h1>
+
+        <!-- Info Section -->
+        <section id="info" class="mb-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item"><b>Capital:</b> <span class="text-primary">New Delhi</span></li>
+                        <li class="list-group-item"><b>Official languages:</b> <span class="text-success">Hindi, English</span></li>
+                        <li class="list-group-item"><b>Population:</b> <span class="text-danger">Over 1.4 billion</span></li>
+                        <li class="list-group-item"><b>Area:</b> 3,287,263 km²</li>
+                        <li class="list-group-item"><b>Currency:</b> Indian Rupee (INR)</li>
+                        <li class="list-group-item"><b>Independence day:</b> <span class="text-success">August 15, 1947</span></li>
+                    </ul>
+                    <div class="brief-info mb-2">
+                        India is located in South Asia and is the world's largest democracy. Known for its rich heritage and vibrant culture, India is home to many important world sites including the Taj Mahal. The country celebrates a variety of colorful festivals and is the birthplace of religions like Hinduism, Buddhism, Jainism, and Sikhism.
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center gap-2 flex-wrap mt-2">
+                <button type="button" class="btn btn-primary" id="colorButton">Change Background Color</button>
+                <button type="button" class="btn special-btn" id="fetchDataButton">Fetch Sample User Data</button>
+            </div>
+        </section>
+
+        <!-- Dynamic Section -->
+        <section id="dynamic">
+            <div class="fetched-data" id="fetchedData">
+                <h4 class="text-primary">Sample Users</h4>
+                <ul class="mb-0" id="userList"></ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-7">
+                    <h2 class="section-title" style="font-size:1.4em;">Contact Us</h2>
+                    <form id="contactForm" class="p-3 bg-light rounded shadow-sm" novalidate>
+                        <div id="successMsg" class="success-msg"></div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" required>
+                            <div class="error-msg" id="nameError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="error-msg" id="emailError"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="message" rows="3" required></textarea>
+                            <div class="error-msg" id="messageError"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center mt-5 mb-3 text-secondary">
+            &copy; 2025 India Country Profile
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS (for navbar) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Background color changer
+        const colorButton = document.getElementById('colorButton');
+        const colors = ['#eef6fa', '#ffe0b2', '#f9fbe7', '#d0f0fd', '#ffe4e1', '#e0f7fa'];
+        let currentIndex = 0;
+
+        colorButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % colors.length;
+            document.body.style.backgroundColor = colors[currentIndex];
+        });
+
+        // Fetch API example: JSONPlaceholder users
+        const fetchDataButton = document.getElementById('fetchDataButton');
+        const fetchedDataDiv = document.getElementById('fetchedData');
+        const userList = document.getElementById('userList');
+
+        fetchDataButton.addEventListener('click', () => {
+            fetchDataButton.disabled = true;
+            fetchDataButton.textContent = "Loading...";
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(data => {
+                    userList.innerHTML = '';
+                    data.slice(0, 5).forEach(user => {
+                        const li = document.createElement('li');
+                        li.textContent = `${user.name} (${user.email})`;
+                        userList.appendChild(li);
+                    });
+                    fetchedDataDiv.style.display = 'block';
+                })
+                .catch(error => {
+                    userList.innerHTML = '<li style="color:red;">Failed to fetch data</li>';
+                    fetchedDataDiv.style.display = 'block';
+                })
+                .finally(() => {
+                    fetchDataButton.disabled = false;
+                    fetchDataButton.textContent = "Fetch Sample User Data";
+                });
+        });
+
+        // Client-side form validation
+        const form = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const successMsg = document.getElementById('successMsg');
+
+        function validateEmail(email) {
+            // Simple email regex
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function clearErrors() {
+            nameError.textContent = "";
+            emailError.textContent = "";
+            messageError.textContent = "";
+            successMsg.textContent = "";
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            clearErrors();
+
+            let valid = true;
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!name) {
+                nameError.textContent = "Name is required.";
+                valid = false;
+            } else if (name.length < 2) {
+                nameError.textContent = "Name must be at least 2 characters.";
+                valid = false;
+            }
+
+            if (!email) {
+                emailError.textContent = "Email is required.";
+                valid = false;
+            } else if (!validateEmail(email)) {
+                emailError.textContent = "Enter a valid email address.";
+                valid = false;
+            }
+
+            if (!message) {
+                messageError.textContent = "Message is required.";
+                valid = false;
+            } else if (message.length < 10) {
+                messageError.textContent = "Message must be at least 10 characters.";
+                valid = false;
+            }
+
+            if (valid) {
+                successMsg.textContent = "Form submitted successfully!";
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>
