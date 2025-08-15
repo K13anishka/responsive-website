@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>India: Country Profile</title>
+    <style>
+        body {
+            background-color: #eef6fa;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #3e2723;
+            transition: background-color 0.5s ease;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .flag {
+            display: block;
+            width: 240px;
+            height: 144px;
+            margin: 0 auto 20px auto;
+            border: 2px solid #222;
+            border-radius: 6px;
+        }
+
+        h1 {
+            color: #0057a4;
+            font-size: 2.6em;
+            background-color: #f3e5ab;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            padding: 10px 0;
+        }
+
+        .info p {
+            font-size: 1.2em;
+            background-color: #ffe0b2;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 8px 0;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .info p span {
+            color: #1565c0;
+            font-weight: bold;
+        }
+
+        .brief-info {
+            background-color: #f9fbe7;
+            color: #444;
+            border-left: 7px solid #ff9800;
+            padding: 12px;
+            margin-top: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .footer {
+            margin-top: 40px;
+            color: #888;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #0057a4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #003f7d;
+        }
+        .special {
+            background-color: #ff9800 !important;
+        }
+
+        .fetched-data {
+            margin-top: 30px;
+            background: #e0f7fa;
+            border-radius: 9px;
+            padding: 18px;
+            text-align: left;
+            display: none;
+        }
+        .fetched-data h2 {
+            font-size: 1.3em;
+            color: #0057a4;
+            margin-top: 0;
+        }
+        .fetched-data ul {
+            list-style-type: disc;
+            margin-left: 24px;
+            color: #444;
+            padding-left: 10px;
+        }
+
+        /* Form Styling */
+        form {
+            margin: 35px auto 0 auto;
+            padding: 24px 18px 16px 18px;
+            background: #f3e5ab;
+            border-radius: 9px;
+            box-shadow: 0 1px 4px rgba(100,100,0,0.07);
+            max-width: 450px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #0057a4;
+            margin-bottom: 6px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 9px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box;
+            margin-bottom: 4px;
+        }
+
+        textarea {
+            min-height: 60px;
+        }
+
+        .error-msg {
+            color: #c62828;
+            font-size: 0.93em;
+            margin-top: 2px;
+            min-height: 20px;
+        }
+
+        .success-msg {
+            color: #388e3c;
+            font-size: 1em;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 767px) {
+            .container {
+                max-width: 90%;
+                padding: 20px;
+            }
+            .flag {
+                width: 180px;
+                height: 108px;
+            }
+            h1 {
+                font-size: 2em;
+                padding: 8px 0;
+            }
+            .info p { font-size: 1em; padding: 8px; }
+            .brief-info { font-size: 0.9em; padding: 10px; }
+            form { max-width: 98%; }
+        }
+        @media screen and (max-width: 480px) {
+            .flag { width: 140px; height: 84px; }
+            h1 { font-size: 1.6em; }
+            .info p { font-size: 0.9em; }
+            .brief-info { font-size: 0.85em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <img
+            src="https://en.wikipedia.org/wiki/Flag_of_India#/media/File:Flag_of_India.svg"
+            alt="Flag of India"
+            class="flag"
+        >
+        
+        <h1>India</h1>
+
+        <div class="info">
+            <p><b>Capital:</b> <span>New Delhi</span></p>
+            <p><b>Official languages:</b> <span>Hindi, English</span></p>
+            <p><b>Population:</b> <span>Over 1.4 billion</span></p>
+            <p><b>Area:</b> <span>3,287,263 km²</span></p>
+            <p><b>Currency:</b> <span>Indian Rupee (INR)</span></p>
+            <p><b>Independence day:</b> <span>August 15, 1947</span></p>
+            <p class="brief-info">
+                India is located in South Asia and is the world's largest democracy. Known for its rich heritage and vibrant culture, India is home to many important world sites including the Taj Mahal. The country celebrates a variety of colorful festivals and is the birthplace of religions like Hinduism, Buddhism, Jainism, and Sikhism.
+            </p>
+        </div>
+        
+        <button id="colorButton">Change Background Color</button>
+        <button id="fetchDataButton" class="special" style="margin-left:10px;">Fetch Sample User Data</button>
+
+        <div class="fetched-data" id="fetchedData">
+            <h2>Sample Users</h2>
+            <ul id="userList"></ul>
+        </div>
+
+        <!-- User Input Form -->
+        <form id="contactForm" novalidate>
+            <div class="success-msg" id="successMsg"></div>
+            <div class="form-group">
+                <label for="name">Name<span style="color:#c62828">*</span></label>
+                <input type="text" id="name" name="name" required>
+                <div class="error-msg" id="nameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email<span style="color:#c62828">*</span></label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-msg" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message<span style="color:#c62828">*</span></label>
+                <textarea id="message" name="message" required></textarea>
+                <div class="error-msg" id="messageError"></div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="footer">
+            &copy; 2025 India Country Profile
+        </div>
+    </div>
+
+    <script>
+        // Background color changer
+        const colorButton = document.getElementById('colorButton');
+        const colors = ['#eef6fa', '#ffe0b2', '#f9fbe7', '#d0f0fd', '#ffe4e1', '#e0f7fa'];
+        let currentIndex = 0;
+
+        colorButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % colors.length;
+            document.body.style.backgroundColor = colors[currentIndex];
+        });
+
+        // Fetch API example: JSONPlaceholder users
+        const fetchDataButton = document.getElementById('fetchDataButton');
+        const fetchedDataDiv = document.getElementById('fetchedData');
+        const userList = document.getElementById('userList');
+
+        fetchDataButton.addEventListener('click', () => {
+            fetchDataButton.disabled = true;
+            fetchDataButton.textContent = "Loading...";
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(data => {
+                    userList.innerHTML = '';
+                    data.slice(0, 5).forEach(user => {
+                        const li = document.createElement('li');
+                        li.textContent = `${user.name} (${user.email})`;
+                        userList.appendChild(li);
+                    });
+                    fetchedDataDiv.style.display = 'block';
+                })
+                .catch(error => {
+                    userList.innerHTML = '<li style="color:red;">Failed to fetch data</li>';
+                    fetchedDataDiv.style.display = 'block';
+                })
+                .finally(() => {
+                    fetchDataButton.disabled = false;
+                    fetchDataButton.textContent = "Fetch Sample User Data";
+                });
+        });
+
+        // Client-side form validation
+        const form = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+        const successMsg = document.getElementById('successMsg');
+
+        function validateEmail(email) {
+            // Simple email regex
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function clearErrors() {
+            nameError.textContent = "";
+            emailError.textContent = "";
+            messageError.textContent = "";
+            successMsg.textContent = "";
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            clearErrors();
+
+            let valid = true;
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!name) {
+                nameError.textContent = "Name is required.";
+                valid = false;
+            } else if (name.length < 2) {
+                nameError.textContent = "Name must be at least 2 characters.";
+                valid = false;
+            }
+
+            if (!email) {
+                emailError.textContent = "Email is required.";
+                valid = false;
+            } else if (!validateEmail(email)) {
+                emailError.textContent = "Enter a valid email address.";
+                valid = false;
+            }
+
+            if (!message) {
+                messageError.textContent = "Message is required.";
+                valid = false;
+            } else if (message.length < 10) {
+                messageError.textContent = "Message must be at least 10 characters.";
+                valid = false;
+            }
+
+            if (valid) {
+                successMsg.textContent = "Form submitted successfully!";
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>
