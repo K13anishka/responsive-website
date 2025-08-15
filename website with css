@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>India: Country Profile</title>
+</head>
+<body style="background-color: #eef6fa; margin: 0; padding: 0;">
+
+    <div style="max-width: 700px; margin: 40px auto; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 30px;">
+        
+        <img
+            src="https://en.wikipedia.org/wiki/Flag_of_India#/media/File:Flag_of_India.svg"
+            alt="Flag of India"
+            style="display: block; width: 240px; height: 144px; margin: 0 auto 20px auto; border: 2px solid #222; border-radius: 6px;"
+        >
+        
+        <h1 style="text-align: center; color: #0057a4; font-size: 2.6em; background-color: #f3e5ab; margin-bottom: 15px; border-radius:8px;">
+            India
+        </h1>
+
+        <div>
+            <p style="color: #3e2723; font-size: 1.2em; background-color: #ffe0b2; padding: 10px; border-radius: 6px;">
+                <b>Capital:</b> <span style="color: #1565c0; font-weight: bold;">New Delhi</span><br>
+                <b>Official languages:</b> <span style="color: #388e3c; font-size: 1.1em;">Hindi, English</span><br>
+                <b>Population:</b> <span style="color: #c62828; background-color: #fffde7; padding: 2px 6px; border-radius: 4px;">Over 1.4 billion</span><br>
+                <b>Area:</b> <span style="color: #7b1fa2;">3,287,263 km²</span><br>
+                <b>Currency:</b> <span style="color: #e65100;">Indian Rupee (INR)</span><br>
+                <b>Independence day:</b> <span style="color: #388e3c;">August 15, 1947</span>
+            </p>
+            <p style="color: #444; font-size: 1.1em; background-color: #f9fbe7; padding: 12px; border-left: 7px solid #ff9800; border-radius: 6px;">
+                India is located in South Asia and is the world's largest democracy. Known for its <span style="color: #1565c0;">rich heritage</span> and <span style="color: #e65100;">vibrant culture</span>, India is home to many important world sites including the Taj Mahal. The country celebrates a variety of colorful festivals and is the birthplace of religions like <span style="color: #388e3c;">Hinduism</span>, <span style="color: #b71c1c;">Buddhism</span>, <span style="color: #6d4c41;">Jainism</span>, and <span style="color: #0277bd;">Sikhism</span>.
+            </p>
+        </div>
+
+        <div style="margin-top:40px; text-align: center; color: #888; font-size: 1em;">
+            &copy; 2025 India Country Profile
+        </div>
+    </div>
+
+    <!--
+    Objective steps for learning inline CSS:
+
+    1. Inline CSS uses the "style" attribute inside HTML tags to directly change the look of elements.
+    2. In this code, font color, size, and background color are set for various tags using the "style" attribute.
+    3. Try changing values like "color", "background-color", and "font-size" in the style attributes.
+    4. Save and reload the HTML file to see your changes!
+    -->
+</body>
+</html>
